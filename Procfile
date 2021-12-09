@@ -1,1 +1,1 @@
-web gunicorn <project_name>.wsgi:application --log-file -
+web gunicorn Equal_Parental_Rights.wsgi:application --log-file -
