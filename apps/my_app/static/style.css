@@ -55,12 +55,14 @@ span {
 tbody tr:nth-of-type(even) {
     background-color: #fdaaaa;
 } */
-.table {
-    border-color: red;
+td p{
+    width: 120px;
+    word-wrap: break-word;
 }
 tbody tr {
     background-color: white;
 }
+
 @media(max-width: 620px) {
     .wrapper {
         padding: 10px;
