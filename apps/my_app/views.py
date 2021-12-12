@@ -18,10 +18,13 @@ def index(request):
 
 
 def admin(request):
-    context = {
-        'errorType': request.session['errors']
-    }
-    return render(request, 'admin-register.html')
+    if 'errors' in request.session:
+        context = {
+            'errorType': request.session['errors']
+        }
+    else:
+        context = {}
+    return render(request, 'admin-register.html', context)
 
 def register_admin(request):
     errors = User.objects.registrationValidator(request.POST)
