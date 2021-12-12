@@ -19,7 +19,6 @@
                 {% endfor %}
                 </div>
             {% endif %}
-            {{session.errors}}
             <form action="/admin" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">

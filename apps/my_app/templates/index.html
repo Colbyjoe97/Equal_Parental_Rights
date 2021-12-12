@@ -11,6 +11,10 @@
 </head>
 <body>
     <div class="wrapper text-center pt-4">
+        <p>
+            If you have any questions, concerns, or suggestions please click <a href="mailto:equalparentalrights@gmail.com" class="email">here</a> to reach out
+        </p>
+        <div class="footer_line"></div> 
         <h3>Equal Parental Rights</h3>
         <p class="bill pt-3">
             <span>The</span> following is a list of items in which needs to become a bill/law to improve the lives of
@@ -76,95 +80,125 @@
             fear.
             <br><br>
             <span>11.</span> In a divorce situation with shared custody one parent cannot place the child
-            on any long term medications without consent
+            on any long term medications without consent from the other parent.
+            <br><br>
+            <span>12.</span> In a shared custody agreement if both parents are in a disagreement on any
+            medications then both parents shall seek any testing needed to prove or disprove
+            the medication in question with the cost being shared 50/50 between parents.
+            <br><br>
+            <span>13.</span> In a shared custody agreement all medical appointments, school
+            appointments, etc.. the parent in which makes these appointments shall inform the
+            other parent of these appointments either before making the appointment or as soon
+            as the appointments are made.
+            <br><br>
+            <span>The</span> above mentioned will create a better more stable life for children to give them a better life.
+            Will bring more parents back into the childrens lives in which they need and deserve. This will also
+            alleviate any hostile situations between the parents in which causes the children to suffer. To make this
+            law will also alleviate any bias in courts towards certain genders. This will create peace between parents
+            not being able to compete against the other by taking the child away from them.
+            <br><br>
+            <span>In</span> divorce situations people have lost the ability to think of the children that are getting hurt but
+            instead think about hurting the other parent for what ever reason that caused the divorce. The children are
+            the ones that suffer and have a higher chance to end up as drug addicts, criminals, failing school, etc... all
+            due to the parents vindictive ways.
+            <br><br>
+            <span>With</span> this in place it will give children a happier lifestyle with both parents having little to no
+            negativity towards each other due to the parents wont have the choice to try and take a child away from
+            the other parent. The children will have a higher chance to succeed in life.
         </p>
         <div class="sign">
+            {% if messages %}
+                <div>
+                {% for message in messages %}
+                    <p class='text-danger'>{{ message }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
             <form action="/sign" method="POST">
+                {% csrf_token %}
                 <div class="input flexed">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname">
+                    <div class="input-left">
+                        <label for="fname">First Name</label>
+                    </div>
+                    <div class="input-right">
+                        <input type="text" name="fname">
+                    </div>
                 </div>
                 <div class="input flexed">
-                    <label for="lname">Last Name</label>
-                    <input type="text" name="lname">
+                    <div class="input-left">
+                        <label for="lname">Last Name</label>
+                    </div>
+                    <div class="input-right">
+                        <input type="text" name="lname">
+                    </div>
                 </div>
                 <div class="input flexed">
-                    <label for="age">Age</label>
-                    <input type="number" name="age">
+                    <div class="input-left">
+                        <label for="age">Age</label>
+                    </div>
+                    <div class="input-right">
+                        <input type="number" name="age">
+                    </div>
                 </div>
                 <div class="input flexed">
-                    <label for="sex">Sex</label>
-                    <select name="sex">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <div class="input-left">
+                        <label for="comment">Comment (optional)</label>
+                    </div>
+                    <div class="input-right">
+                        <textarea name="comment"></textarea>
+                    </div>
                 </div>
                 <div class="input flexed">
-                    <label for="state">State</label>
-                    <select name="state">
-                        {% for state in states %}
-                            <option value="{{state.0}}">{{state.1}}</option>
-                        {% endfor %}
-                    </select>
+                    <div class="input-left">
+                        <label for="sex">Sex</label>
+                    </div>
+                    <div class="input-right">
+                        <select name="sex">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input flexed">
+                    <div class="input-left">
+                        <label for="state">State</label>
+                    </div>
+                    <div class="input-right">
+                        <select name="state">
+                            {% for state in states %}
+                                <option value="{{state.0}}">{{state.1}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
 
                 <input type="submit" value="Sign">
             </form>
         </div>
-        <div class="table">
-            <table class="table table-hover table-danger">
+        <div class="table-list">
+            <table class="table table-hover table-secondary">
                 <thead>
                     <tr>
                         <td>Number</td>
-                        <td>First Name</td>
-                        <td>Last Name</td>
+                        <td>Name</td>
                         <td>Age</td>
+                        <td>State</td>
                         <td>Sex</td>
                         <td>Comments</td>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for signee in signatures %}
                     <tr>
-                        <td>1</td>
-                        <td>Colby</td>
-                        <td>Dumonchelle</td>
-                        <td>24</td>
-                        <td>Male</td>
-                        <td>I like this idea a lot</td>
+                        <td>{{signee.id}}</td>
+                        <td>{{signee.first_name}} {{signee.last_name}}</td>
+                        <td>{{signee.age}}</td>
+                        <td>{{signee.state}}</td>
+                        <td>{{signee.sex}}</td>
+                        <td>{{signee.comment}}</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Joseph</td>
-                        <td>Dumonchelle</td>
-                        <td>51</td>
-                        <td>Male</td>
-                        <td>This is pretty cool</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Sue</td>
-                        <td>Dumonchelle</td>
-                        <td>58</td>
-                        <td>Female</td>
-                        <td>You should add ....You should add ....You should add ....You should add ....</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Sue</td>
-                        <td>Dumonchelle</td>
-                        <td>58</td>
-                        <td>Female</td>
-                        <td>You should add ....</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Sue</td>
-                        <td>Dumonchelle</td>
-                        <td>58</td>
-                        <td>Female</td>
-                        <td>You should add ....</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
