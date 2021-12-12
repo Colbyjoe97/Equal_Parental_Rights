@@ -21,6 +21,8 @@ class UserManager(models.Manager):
             errors['email'] = "Email is required"
         elif not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "Email not in correct format"
+        elif len(matchingEmail) != 0:
+            errors['email'] = "Email already registered"
 
 
         if len(postData['pass']) == 0:
@@ -63,6 +65,7 @@ class User(models.Model):
     last_name=models.CharField(max_length=255)
     email=models.CharField(max_length=255)
     password=models.CharField(max_length=255)
+    admin=models.BooleanField(default=False)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=UserManager()

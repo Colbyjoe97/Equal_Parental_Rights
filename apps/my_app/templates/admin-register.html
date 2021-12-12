@@ -12,7 +12,15 @@
 <body>
     <div class="wrapper text-center flexed">
         <div class="register">
-            <form action="/register/admin" method="POST">
+            {% if messages %}
+                <div>
+                {% for message in messages %}
+                    <p class='text-danger'>{{ message }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {{session.errors}}
+            <form action="/admin" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
                     <label for="fname">First Name:</label>
@@ -33,6 +41,11 @@
                 <div class="input flexed">
                     <label for="confirmPass">Confirm Password:</label>
                     <input type="text" name="confirmPass">
+                </div>
+
+                <div class="input flexed">
+                    <label for="admin-code">Admin Code:</label>
+                    <input type="text" name="admin-code">
                 </div>
     
                 <input type="submit" value="Register Admin Account">
