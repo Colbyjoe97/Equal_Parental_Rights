@@ -1,0 +1,17 @@
+.flexed {
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrapper {
+    justify-content: space-evenly;
+}
+label {
+    margin-right: 10px;
+}
+label, input {
+    margin-top: 10px;
+}
+.input {
+    align-items: center;
+    justify-content: space-between;
+}
