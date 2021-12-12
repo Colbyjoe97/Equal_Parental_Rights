@@ -1,3 +1,8 @@
 .wrapper {
-    
+    padding: 0px 10% 0px 10%;   
+}
+.bill {
+    height: 250px;
+    text-align: left;
+    overflow: auto;
 }
