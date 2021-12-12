@@ -5,6 +5,9 @@ from django.contrib import messages
 import bcrypt
 # Create your views here.
 def index(request):
+    # signees = Signature.objects.all()
+    # for s in signees:
+    #     s.delete()
     us_states = [("AL","Alabama"),("AK","Alaska"),("AZ","Arizona"),("AR","Arkansas"),("CA", "California"),("CO", "Colorado"),
     ("CT","Connecticut"),("DC","Washington DC"),("DE","Delaware"),("FL","Florida"),("GA","Georgia"),
     ("HI","Hawaii"),("ID","Idaho"),("IL","Illinois"),("IN","Indiana"),("IA","Iowa"),("KS","Kansas"),("KY","Kentucky"),
@@ -17,13 +20,35 @@ def index(request):
     if 'user' in request.session:
         context = {
             'user': User.objects.get(id=request.session['user']),
-            'states': us_states
+            'states': us_states,
+            'signatures': Signature.objects.all()
         }
     else:
         context = {
-            'states': us_states
+            'states': us_states,
+            'signatures': Signature.objects.all()
         }
     return render(request, 'index.html', context)
+
+
+def sign(request):
+    duplicate = False
+    errors = Signature.objects.signatureValidator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+    else:
+        signatures = Signature.objects.filter(first_name=request.POST['fname'], last_name=request.POST['lname'], age=request.POST['age'], state=request.POST['state'])
+        for s in signatures:
+            print(s.first_name, s.last_name)
+        if len(signatures) == 0:
+            Signature.objects.create(first_name=request.POST['fname'],last_name=request.POST['lname'],age=request.POST['age'],sex=request.POST['sex'],state=request.POST['state'],comment=request.POST['comment'])
+        else:
+            messages.error(request, "You cannot sign more than once")
+    return redirect("/")
+
+
+
 
 
 def admin(request):
@@ -51,8 +76,8 @@ def register_admin(request):
             hashedPass = bcrypt.hashpw(request.POST['pass'].encode(), bcrypt.gensalt()).decode()
             user = User.objects.create(first_name=request.POST['fname'],last_name=request.POST['lname'],email=request.POST['email'],admin=True,password=hashedPass)
             request.session['user'] = user.id
-            print(f"THIS IS THE NEW USER: {user}")
-            print(f"THIS IS THE NEW USER SESSION: {request.session['user']}")
+            # print(f"THIS IS THE NEW USER: {user}")
+            # print(f"THIS IS THE NEW USER SESSION: {request.session['user']}")
             return redirect("/")
         else:
             request.session['errors'] = "bad code"

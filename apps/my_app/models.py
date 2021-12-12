@@ -9,13 +9,9 @@ class UserManager(models.Manager):
 
         if len(postData['fname']) == 0:
             errors['fname'] = "First name is required"
-        elif len(postData['fname']) < 3:
-            errors['fname'] = "First name must be at least 2 characters long"
 
         if len(postData['lname']) == 0:
             errors['lname'] = "Last name is required"
-        elif len(postData['lname']) < 3:
-            errors['lname'] = "Last name must be at least 2 characters long"
 
         if len(postData['email']) == 0:
             errors['email'] = "Email is required"
@@ -50,14 +46,32 @@ class UserManager(models.Manager):
 
         return errors
 
+class SignatureManager(models.Manager):
+    def signatureValidator(self, postData):
+        errors = {}
+
+        if len(postData['fname']) == 0:
+            errors['fname'] = "First name is required"
+
+        if len(postData['lname']) == 0:
+            errors['lname'] = "Last name is required"
+
+        if postData['age'] < str(18):
+            errors['age'] = "You must be 18 years old to sign"
+
+        return errors
+
+
 class Signature(models.Model):
     first_name=models.CharField(max_length=255)
     last_name=models.CharField(max_length=255)
     state=models.CharField(max_length=255)
     age=models.IntegerField()
     sex=models.CharField(max_length=255)
+    comment=models.CharField(max_length=20)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+    objects=SignatureManager()
 
 
 class User(models.Model):
