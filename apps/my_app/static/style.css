@@ -49,12 +49,6 @@ span {
     background-color: yellow;
     width: 80vw;
 }
-/* tbody tr:nth-of-type(odd) {
-    background-color: #ffcaca;
-}
-tbody tr:nth-of-type(even) {
-    background-color: #fdaaaa;
-} */
 td p{
     width: 120px;
     word-wrap: break-word;
