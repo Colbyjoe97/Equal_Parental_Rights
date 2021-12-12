@@ -13,6 +13,15 @@
     overflow: auto;
     background-color: white;
 }
+.middle {
+    flex-wrap: wrap;
+}
+.middle-left {
+    margin-bottom: 20px;
+}
+.middle-left img {
+    width: 80%;
+}
 .sign {
     /* padding: 0px 20% 0px 20%; */
     margin: auto;

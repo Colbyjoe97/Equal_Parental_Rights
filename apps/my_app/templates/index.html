@@ -106,75 +106,83 @@
             negativity towards each other due to the parents wont have the choice to try and take a child away from
             the other parent. The children will have a higher chance to succeed in life.
         </p>
-        <div class="sign">
-            {% if messages %}
-                <div>
-                {% for message in messages %}
-                    <p class='text-danger'>{{ message }}</p>
-                {% endfor %}
-                </div>
-            {% endif %}
-            <form action="/sign" method="POST">
-                {% csrf_token %}
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="fname">First Name</label>
+        <div class="middle flexed">
+            <div class="middle-left">
+               <img src="../static/family.jpg" alt="family pic">
+               <h4 class="mt-3">
+                   Help bring families back together!
+               </h4> 
+            </div>
+            <div class="sign">
+                {% if messages %}
+                    <div>
+                    {% for message in messages %}
+                        <p class='text-danger'>{{ message }}</p>
+                    {% endfor %}
                     </div>
-                    <div class="input-right">
-                        <input type="text" name="fname">
+                {% endif %}
+                <form action="/sign" method="POST">
+                    {% csrf_token %}
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="fname">First Name</label>
+                        </div>
+                        <div class="input-right">
+                            <input type="text" name="fname">
+                        </div>
                     </div>
-                </div>
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="lname">Last Name</label>
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="lname">Last Name</label>
+                        </div>
+                        <div class="input-right">
+                            <input type="text" name="lname">
+                        </div>
                     </div>
-                    <div class="input-right">
-                        <input type="text" name="lname">
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="age">Age</label>
+                        </div>
+                        <div class="input-right">
+                            <input type="number" name="age">
+                        </div>
                     </div>
-                </div>
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="age">Age</label>
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="comment">Comment (optional)</label>
+                        </div>
+                        <div class="input-right">
+                            <textarea name="comment" maxlength="50"></textarea>
+                        </div>
                     </div>
-                    <div class="input-right">
-                        <input type="number" name="age">
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="sex">Sex</label>
+                        </div>
+                        <div class="input-right">
+                            <select name="sex">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="comment">Comment (optional)</label>
+                    <div class="input flexed">
+                        <div class="input-left">
+                            <label for="state">State</label>
+                        </div>
+                        <div class="input-right">
+                            <select name="state">
+                                {% for state in states %}
+                                    <option value="{{state.0}}">{{state.1}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
-                    <div class="input-right">
-                        <textarea name="comment"></textarea>
-                    </div>
-                </div>
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="sex">Sex</label>
-                    </div>
-                    <div class="input-right">
-                        <select name="sex">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="input flexed">
-                    <div class="input-left">
-                        <label for="state">State</label>
-                    </div>
-                    <div class="input-right">
-                        <select name="state">
-                            {% for state in states %}
-                                <option value="{{state.0}}">{{state.1}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-
-                <input type="submit" value="Sign">
-            </form>
+    
+                    <input type="submit" value="Sign">
+                </form>
+            </div>
         </div>
         <div class="table-list">
             <table class="table table-hover table-secondary">
