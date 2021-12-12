@@ -1,8 +1,29 @@
 .wrapper {
-    padding: 0px 10% 0px 10%;   
+    padding: 0px 10% 0px 10%;
+    background-color: rgb(248, 243, 243);  
+}
+.flexed {
+    display: flex;
 }
 .bill {
     height: 250px;
+    padding: 10px;
     text-align: left;
     overflow: auto;
+    background-color: white;
+}
+.sign {
+    padding: 0px 20% 0px 20%;
+}
+.input {
+    justify-content: space-between;
+}
+input, select {
+    width: 250px;
+}
+input, select, label {
+    margin-bottom: 20px;
+}
+span {
+    margin-left: 20px;
 }
