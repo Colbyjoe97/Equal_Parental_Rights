@@ -56,7 +56,7 @@ class SignatureManager(models.Manager):
         if len(postData['lname']) == 0:
             errors['lname'] = "Last name is required"
 
-        if postData['age'] < str(18):
+        if int(postData['age']) < 18:
             errors['age'] = "You must be 18 years old to sign"
 
         return errors

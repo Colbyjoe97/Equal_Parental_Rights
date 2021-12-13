@@ -1,13 +1,14 @@
 from __future__ import unicode_literals
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from apps.my_app.models import *
 from django.contrib import messages
 import bcrypt
 # Create your views here.
 def index(request):
-    # signees = Signature.objects.all()
-    # for s in signees:
-    #     s.delete()
+    signees = Signature.objects.all()
+    for s in signees:
+        s.delete()
     us_states = [("AL","Alabama"),("AK","Alaska"),("AZ","Arizona"),("AR","Arkansas"),("CA", "California"),("CO", "Colorado"),
     ("CT","Connecticut"),("DC","Washington DC"),("DE","Delaware"),("FL","Florida"),("GA","Georgia"),
     ("HI","Hawaii"),("ID","Idaho"),("IL","Illinois"),("IN","Indiana"),("IA","Iowa"),("KS","Kansas"),("KY","Kentucky"),
@@ -21,12 +22,14 @@ def index(request):
         context = {
             'user': User.objects.get(id=request.session['user']),
             'states': us_states,
-            'signatures': Signature.objects.all()
+            'signatures': Signature.objects.all(),
+            'total': len(Signature.objects.all())
         }
     else:
         context = {
             'states': us_states,
-            'signatures': Signature.objects.all()
+            'signatures': Signature.objects.all(),
+            'total': len(Signature.objects.all())
         }
     return render(request, 'index.html', context)
 

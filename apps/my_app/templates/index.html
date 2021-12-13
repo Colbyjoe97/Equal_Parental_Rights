@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Equal Parental Rights</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -184,11 +184,11 @@
                 </form>
             </div>
         </div>
+        <p class="text-left">Total Signatures: {{total}}</p>
         <div class="table-list">
-            <table class="m-auto table-hover table-secondary">
+            <table class="list m-auto table-hover table-secondary">
                 <thead>
-                    <tr>
-                        <td>Number</td>
+                    <tr class="table-header">
                         <td>Name</td>
                         <td>Age</td>
                         <td>State</td>
@@ -199,12 +199,11 @@
                 <tbody>
                     {% for signee in signatures %}
                     <tr>
-                        <td>{{signee.id}}</td>
                         <td>{{signee.first_name}} {{signee.last_name}}</td>
                         <td>{{signee.age}}</td>
                         <td>{{signee.state}}</td>
                         <td>{{signee.sex}}</td>
-                        <td><p>{{signee.comment}}</p></td>
+                        <td>{{signee.comment}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

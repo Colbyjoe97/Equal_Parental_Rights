@@ -23,18 +23,23 @@
     width: 80%;
 }
 .sign {
-    /* padding: 0px 20% 0px 20%; */
     margin: auto;
 }
-/* .sign {
-    width: 30%;
-    margin: auto;
-} */
 .input-left {
     width: 100px;
 }
 .input {
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.list {
+    width: 100%;
+}
+.table-header td {
+    padding: 3px;
+}
+td {
+    border: 1px solid rgb(199, 198, 198);
 }
 input, select, textarea {
     width: 250px;
@@ -51,7 +56,7 @@ tbody tr {
 
 @media(max-width: 620px) {
     .wrapper {
-        padding: 10px;
+        padding: 5px;
         width: 100vw;
     }
 }
