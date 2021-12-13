@@ -1,7 +1,10 @@
+* {
+    transition: 0.3s;
+}
 .wrapper {
     padding: 0px 10% 40px 10%;
     min-height: 100vh;
-    background-color: rgb(248, 243, 243);  
+    background-color: whitesmoke;  
 }
 .flexed {
     display: flex;
@@ -18,12 +21,39 @@
 }
 .middle-left {
     margin-bottom: 20px;
+    flex: 1;
 }
 .middle-left img {
     width: 80%;
 }
 .sign {
     margin: auto;
+    background-color: #cecece;
+    width: 40%;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.sign input, .sign select, .sign textarea {
+    width: 100%;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid rgb(201, 199, 199);
+    padding: 5px;
+    transition: 0.5s;
+}
+.submit {
+    background-color: #5bd35f;
+    color: white;
+    font-weight: 700;
+}
+.submit:hover {
+    background-color: #45a049;
+    transition: 0.5s;
+}
+.sign p {
+    margin-bottom: 5px;
 }
 .input-left {
     width: 100px;
@@ -35,11 +65,9 @@
 .list {
     width: 100%;
 }
-.table-header td {
-    padding: 3px;
-}
 td {
     border: 1px solid rgb(199, 198, 198);
+    padding: 3px;
 }
 input, select, textarea {
     width: 250px;
@@ -58,5 +86,16 @@ tbody tr {
     .wrapper {
         padding: 5px;
         width: 100vw;
+    }
+}
+@media(max-width: 1283px) {
+    .middle {
+        flex-direction: column;
+    }
+    .sign {
+        width: 80%;
+    }
+    .middle-left img {
+        width: 100%;
     }
 }
