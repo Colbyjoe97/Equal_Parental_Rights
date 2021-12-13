@@ -108,10 +108,10 @@
         </p>
         <div class="middle flexed">
             <div class="middle-left m-auto">
-               <img src="../static/family.jpg" alt="family pic">
-               <h4 class="mt-3">
-                   Help bring families back together!
-               </h4> 
+                <img src="../static/family.jpg" alt="family pic">
+                <div class="container">
+                    <h4 class="mt-3">Help bring families back together!</h4> 
+                </div>
             </div>
             <div class="sign text-left">
                 {% if messages %}
@@ -170,7 +170,6 @@
                         <td>Age</td>
                         <td>State</td>
                         <td>Sex</td>
-                        <td>Comments</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -180,7 +179,6 @@
                         <td>{{signee.age}}</td>
                         <td>{{signee.state}}</td>
                         <td>{{signee.sex}}</td>
-                        <td>{{signee.comment}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
