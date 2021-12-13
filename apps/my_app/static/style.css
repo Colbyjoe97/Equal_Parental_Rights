@@ -1,5 +1,5 @@
 * {
-    transition: 0.3s;
+    transition: 0.1s;
 }
 .wrapper {
     padding: 0px 10% 40px 10%;
@@ -20,14 +20,12 @@
     flex-wrap: wrap;
 }
 .middle-left {
-    /* min-width: 50%; */
     max-width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 5px 8px 25px 5px rgba(0, 0, 0, 0.19);
     border-radius: 20px;
     margin-bottom: 25px;
     margin-right: 20px;
-    /* flex: 1; */
 }
 .container {
     background-color: white;
@@ -38,12 +36,11 @@
     max-width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    /* border-radius: 50%;
-    border: 2px solid black; */
 }
 .sign {
     margin: auto;
     background-color: #cecece;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0px 8px 25px 0px rgba(0, 0, 0, 0.19);
     width: 40%;
     padding: 15px;
     margin-top: 30px;
@@ -58,6 +55,9 @@
     border: 1px solid rgb(201, 199, 199);
     padding: 5px;
     transition: 0.5s;
+}
+.sign textarea {
+    padding-top: 14px;
 }
 .submit {
     background-color: #5bd35f;

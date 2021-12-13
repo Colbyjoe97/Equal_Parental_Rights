@@ -114,13 +114,15 @@
                 </div>
             </div>
             <div class="sign text-left">
-                {% if messages %}
-                    <div>
-                    {% for message in messages %}
-                        <p class='text-danger'>{{ message }}</p>
-                    {% endfor %}
-                    </div>
-                {% endif %}
+                <div class="text-center">
+                    {% if messages %}
+                        <div>
+                        {% for message in messages %}
+                            <p class='text-danger'>{{ message }}</p>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
                 <form action="/sign" method="POST">
                     {% csrf_token %}
                     <div class="input">
