@@ -45,14 +45,6 @@ input, select, label {
 span {
     margin-left: 20px;
 }
-.table-list {
-    background-color: yellow;
-    width: 80vw;
-}
-td p{
-    width: 120px;
-    word-wrap: break-word;
-}
 tbody tr {
     background-color: white;
 }
