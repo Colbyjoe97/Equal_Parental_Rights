@@ -34,6 +34,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 5px;
+    height: 100%;
 }
 .sign input, .sign select, .sign textarea {
     width: 100%;
