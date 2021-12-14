@@ -41,8 +41,9 @@ class UserManager(models.Manager):
 
         if len(postData['pass']) == 0:
             errors['pass'] = "Password is required"
-        elif not bcrypt.checkpw(postData['pass'].encode(), matchingEmail[0].password.encode()):
-            errors['pass'] = "Password is incorrect"
+        if len(matchingEmail) > 0:
+            if not bcrypt.checkpw(postData['pass'].encode(), matchingEmail[0].password.encode()):
+                errors['pass'] = "Password is incorrect"
 
         return errors
 
