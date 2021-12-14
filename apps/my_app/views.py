@@ -86,3 +86,11 @@ def register_admin(request):
             request.session['errors'] = "bad code"
             messages.error(request, "Admin code is incorrect")
             return redirect('/admin/register')
+
+
+def admin_page(request):
+    if 'user' in request.session:
+        context = {
+            'user': User.objects.get(id=request.session['user'])
+        }
+        return render(request, 'admin-page.html', context)
