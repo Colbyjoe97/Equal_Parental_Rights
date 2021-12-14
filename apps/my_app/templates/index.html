@@ -11,6 +11,9 @@
 </head>
 <body>
     <div class="wrapper text-center pt-4">
+        {% if user.admin == True %}
+            <a href="/admin/page"><button>Admin Page</button></a>
+        {% endif %}
         <p>
             If you have any questions, concerns, or suggestions please click <a href="mailto:equalparentalrights@gmail.com" class="email">here</a> to reach out
         </p>
