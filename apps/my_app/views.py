@@ -67,11 +67,10 @@ def register_admin(request):
     errors = User.objects.registrationValidator(request.POST)
     print(request.POST)
     if len(errors) > 0:
-        request.session['errors'] = "register"
+        request.session['errors'] = 1
         for key, value in errors.items():
             messages.error(request, value)
         if request.POST['admin-code'] != "centrino39":
-            request.session['errors'] = "bad code"
             messages.error(request, "Admin code is incorrect")
         return redirect('/admin/register')
     else:
@@ -79,13 +78,26 @@ def register_admin(request):
             hashedPass = bcrypt.hashpw(request.POST['pass'].encode(), bcrypt.gensalt()).decode()
             user = User.objects.create(first_name=request.POST['fname'],last_name=request.POST['lname'],email=request.POST['email'],admin=True,password=hashedPass)
             request.session['user'] = user.id
-            # print(f"THIS IS THE NEW USER: {user}")
-            # print(f"THIS IS THE NEW USER SESSION: {request.session['user']}")
             return redirect("/")
         else:
             request.session['errors'] = "bad code"
             messages.error(request, "Admin code is incorrect")
             return redirect('/admin/register')
+
+
+
+def login(request):
+    errors = User.objects.loginValidator(request.POST)
+    if len(errors) > 0:
+        request.session['errors'] = 2
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/admin/register')
+    else:
+        user = User.objects.filter(email=request.POST['email'])
+        request.session['user'] = user[0].id
+        return redirect('/')
+
 
 
 def admin_page(request):

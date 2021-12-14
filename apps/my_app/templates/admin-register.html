@@ -13,11 +13,13 @@
     <div class="wrapper text-center flexed">
         <div class="register">
             {% if messages %}
+                {% if request.session.errors == 1 %}
                 <div>
-                {% for message in messages %}
-                    <p class='text-danger'>{{ message }}</p>
-                {% endfor %}
+                    {% for message in messages %}
+                        <p class='text-danger'>{{ message }}</p>
+                    {% endfor %}
                 </div>
+                {% endif %}
             {% endif %}
             <form action="/register" method="POST">
                 {% csrf_token %}
@@ -51,6 +53,15 @@
             </form>
         </div>
         <div class="login">
+            {% if messages %}
+                {% if request.session.errors == 2 %}
+                <div>
+                    {% for message in messages %}
+                        <p class='text-danger'>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endif %}
             <form action="/login" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
@@ -61,7 +72,7 @@
                     <label for="pass">Password:</label>
                     <input type="text" name="pass">
                 </div>
-                <input type="submit" value="Register Admin Account">
+                <input type="submit" value="Login">
             </form>
         </div>
     </div>
