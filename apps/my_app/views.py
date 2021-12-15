@@ -99,7 +99,6 @@ def login(request):
         return redirect('/')
 
 
-
 def admin_page(request):
     if 'user' in request.session:
         context = {
