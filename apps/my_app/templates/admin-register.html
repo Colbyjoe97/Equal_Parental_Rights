@@ -21,7 +21,8 @@
                 </div>
                 {% endif %}
             {% endif %}
-            <form action="/register" method="POST">
+            <h3>Register Account</h3>
+            <form action="{% url 'register_admin' %}" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
                     <label for="fname">First Name:</label>
@@ -37,11 +38,11 @@
                 </div>
                 <div class="input flexed">
                     <label for="pass">Password:</label>
-                    <input type="text" name="pass">
+                    <input type="password" name="pass">
                 </div>
                 <div class="input flexed">
                     <label for="confirmPass">Confirm Password:</label>
-                    <input type="text" name="confirmPass">
+                    <input type="password" name="confirmPass">
                 </div>
 
                 <div class="input flexed">
@@ -49,7 +50,7 @@
                     <input type="text" name="admin-code">
                 </div>
     
-                <input type="submit" value="Register Admin Account">
+                <input type="submit" class="submit" value="Register Admin Account">
             </form>
         </div>
         <div class="login">
@@ -62,7 +63,8 @@
                 </div>
                 {% endif %}
             {% endif %}
-            <form action="/login" method="POST">
+            <h3>Login</h3>
+            <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
                     <label for="email">Email:</label>
@@ -70,9 +72,9 @@
                 </div>
                 <div class="input flexed">
                     <label for="pass">Password:</label>
-                    <input type="text" name="pass">
+                    <input type="password" name="pass">
                 </div>
-                <input type="submit" value="Login">
+                <input type="submit" class="submit" value="Login">
             </form>
         </div>
     </div>
