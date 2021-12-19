@@ -8,9 +8,6 @@ from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
-    # signees = Signature.objects.all()
-    # for s in signees:
-    #     s.delete()
     us_states = [("AL","Alabama"),("AK","Alaska"),("AZ","Arizona"),("AR","Arkansas"),("CA", "California"),("CO", "Colorado"),
     ("CT","Connecticut"),("DC","Washington DC"),("DE","Delaware"),("FL","Florida"),("GA","Georgia"),
     ("HI","Hawaii"),("ID","Idaho"),("IL","Illinois"),("IN","Indiana"),("IA","Iowa"),("KS","Kansas"),("KY","Kentucky"),
