@@ -1,6 +1,3 @@
-* {
-    transition: 0.1s;
-}
 .wrapper {
     padding: 0px 10% 40px 10%;
     min-height: 100vh;
@@ -97,10 +94,21 @@ span {
 tbody tr {
     background-color: white;
 }
-
+.admin-button {
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+.admin-button:hover {
+    padding-right: 20px;
+    padding-left: 20px;
+    transition: 0.3s;
+}
 @media(max-width: 620px) {
     .wrapper {
-        padding: 5px;
+        padding: 10px;
         width: 100vw;
     }
 }
@@ -109,9 +117,6 @@ tbody tr {
         flex-direction: column;
     }
     .sign {
-        width: 80%;
-    }
-    .middle-left img {
         width: 100%;
     }
 }
