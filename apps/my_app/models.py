@@ -53,9 +53,13 @@ class SignatureManager(models.Manager):
 
         if len(postData['fname']) == 0:
             errors['fname'] = "First name is required"
+        elif len(postData['fname']) > 17:
+            errors['fname'] = "First name cannot be more than 17 characters"
 
         if len(postData['lname']) == 0:
             errors['lname'] = "Last name is required"
+        elif len(postData['lname']) > 17:
+            errors['lname'] = "Last name cannot be more than 17 characters"
 
         if not postData['age']:
             errors['age'] = "Age is required"
@@ -66,8 +70,8 @@ class SignatureManager(models.Manager):
 
 
 class Signature(models.Model):
-    first_name=models.CharField(max_length=255)
-    last_name=models.CharField(max_length=255)
+    first_name=models.CharField(max_length=17)
+    last_name=models.CharField(max_length=17)
     state=models.CharField(max_length=255)
     age=models.IntegerField()
     sex=models.CharField(max_length=255)
