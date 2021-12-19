@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'admin-page.css' %}">
 </head>
 <body>
-    <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+    <div class="wrapper">
+        <a href="/">Go Back</a>
+        <h1 class="mb-5">Welcome {{user.first_name}} {{user.last_name}}</h1>
+        <table class="m-auto text-center table table-hover table-primary w-50">
+            <thead>
+                <tr>
+                    <td>State</td>
+                    <td>Signature Count</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for state in states %}
+                <tr>
+                    <td>{{state.state}}</td>
+                    <td>{{state.count}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
