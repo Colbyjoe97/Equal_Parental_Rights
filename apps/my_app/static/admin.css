@@ -3,6 +3,10 @@
     flex-wrap: wrap;
 }
 .wrapper {
+    transition: 0.1s;
+    padding: 20px 10% 40px 10%;
+    min-height: 100vh;
+    background-color: whitesmoke;  
     justify-content: space-evenly;
 }
 label {
@@ -14,4 +18,22 @@ label, input {
 .input {
     align-items: center;
     justify-content: space-between;
+}
+.register, .login {
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px;
+    height: 100%;
+    border-radius: 15px;
+}
+.submit {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #8ad9f1;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.submit:hover {
+    background-color: #45b7da;
+    transition: 0.3s;
 }
