@@ -60,9 +60,6 @@ def sign(request):
     return redirect("/")
 
 
-
-
-
 def admin(request):
     if 'errors' in request.session:
         context = {
