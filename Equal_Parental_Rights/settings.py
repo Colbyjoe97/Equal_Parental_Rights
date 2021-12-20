@@ -27,7 +27,12 @@ SECRET_KEY = '7a9c7l8verc_q0+vn!5u6otwy1hn(_u931%n_)q+&w!%bpkxg#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'www.equalparentalrights.org', 
+    'https://equalparentalrights.herokuapp.com/'
+]
 
 
 # Application definition
