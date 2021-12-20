@@ -25,28 +25,28 @@
             <form action="{% url 'register_admin' %}" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
-                    <label for="fname">First Name:</label>
+                    <p for="fname">First Name:</p>
                     <input type="text" name="fname">
                 </div>
                 <div class="input flexed">
-                    <label for="lname">Last Name:</label>
+                    <p for="lname">Last Name:</p>
                     <input type="text" name="lname">
                 </div>
                 <div class="input flexed">
-                    <label for="email">Email:</label>
+                    <p for="email">Email:</p>
                     <input type="text" name="email">
                 </div>
                 <div class="input flexed">
-                    <label for="pass">Password:</label>
+                    <p for="pass">Password:</p>
                     <input type="password" name="pass">
                 </div>
                 <div class="input flexed">
-                    <label for="confirmPass">Confirm Password:</label>
+                    <p for="confirmPass">Confirm Password:</p>
                     <input type="password" name="confirmPass">
                 </div>
 
                 <div class="input flexed">
-                    <label for="admin-code">Admin Code:</label>
+                    <p for="admin-code">Admin Code:</p>
                     <input type="text" name="admin-code">
                 </div>
     
@@ -67,11 +67,11 @@
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 <div class="input flexed">
-                    <label for="email">Email:</label>
+                    <p for="email">Email:</p>
                     <input type="text" name="email">
                 </div>
                 <div class="input flexed">
-                    <label for="pass">Password:</label>
+                    <p for="pass">Password:</p>
                     <input type="password" name="pass">
                 </div>
                 <input type="submit" class="submit" value="Login">
