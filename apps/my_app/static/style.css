@@ -78,6 +78,10 @@
 .list {
     width: 100%;
 }
+.table-list {
+    height: 350px;
+    overflow: auto;
+}
 td {
     border: 1px solid rgb(199, 198, 198);
     padding: 3px;
@@ -95,15 +99,24 @@ tbody tr {
     background-color: white;
 }
 .admin-button {
-    background-color: yellow;
+    background-color: rgba(240, 240, 151, 0.404);
     border-radius: 10px;
     padding: 5px;
     transition: 0.3s;
     margin-bottom: 20px;
 }
 .admin-button:hover {
-    padding-right: 20px;
-    padding-left: 20px;
+    background-color: rgb(255, 255, 0);
+    transition: 0.3s;
+}
+.logout {
+    background-color: rgba(173, 216, 230, 0.521);
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.3s;
+}
+.logout:hover {
+    background-color: rgb(97, 212, 250);
     transition: 0.3s;
 }
 @media(max-width: 620px) {
