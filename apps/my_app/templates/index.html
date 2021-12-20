@@ -14,6 +14,7 @@
     <div class="wrapper text-center pt-4">
         {% if user.admin == True %}
             <a href="{% url 'admin_page' %}"><button class="admin-button">Admin Page</button></a>
+            <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
         {% endif %}
         <p>
             If you have any questions, concerns, or suggestions please click <a href="mailto:equalparentalrights@gmail.com" class="email">here</a> to reach out
