@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^register$', views.register_admin, name="register_admin"),
     url(r'^login$', views.login, name="login"),
     url(r'^admin/page$', views.admin_page, name="admin_page"),
+    url(r'^logout$', views.logout, name="logout"),
     url(r'^', views.bad_request),
 ]
