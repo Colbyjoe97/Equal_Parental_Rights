@@ -8,9 +8,6 @@ from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
-    # signatures = Signature.objects.all()
-    # for i in signatures:
-    #     i.delete()
     us_states = [("AL","Alabama"),("AK","Alaska"),("AZ","Arizona"),("AR","Arkansas"),("CA", "California"),("CO", "Colorado"),
     ("CT","Connecticut"),("DC","Washington DC"),("DE","Delaware"),("FL","Florida"),("GA","Georgia"),
     ("HI","Hawaii"),("ID","Idaho"),("IL","Illinois"),("IN","Indiana"),("IA","Iowa"),("KS","Kansas"),("KY","Kentucky"),
@@ -134,7 +131,9 @@ def admin_page(request):
         return redirect('/')
 
 
-
+def logout(request):
+    request.session.clear()
+    return redirect('/')
 
 
 
