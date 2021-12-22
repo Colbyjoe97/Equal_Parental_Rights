@@ -136,7 +136,5 @@ def logout(request):
     return redirect('/')
 
 
-
-
 def bad_request(request):
     return redirect('/')
